@@ -1,0 +1,64 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+
+
+{%block body%}
+
+
+<main role="main">
+
+    <section class="jumbotron text-center">
+      <div class="container">
+        <h1 class="jumbotron-heading">Dermatologist office!</h1>
+        <p class="lead text-muted">We are a fictional dermatologist office</p>
+        <p>
+          <a href="/risk_group/" class="btn btn-primary my-2">Learn About your Skin cancer risk groups</a>
+          <a href="/cancer_screening/" class="btn btn-secondary my-2">Analyze a questionable mole from home!</a>
+        </p>
+      </div>
+    </section>
+
+    <div class="album py-5 bg-light">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+                <div class="card-header">
+                    <p class="card-text">Person 1.</p>
+                </div>
+
+                <div class="card-body">
+                    <p class="card-text">This is information about person 1.</p>
+                </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+                <div class="card-header">
+                    <p class="card-text">Person 2.</p>
+                </div>
+
+                <div class="card-body">
+                    <p class="card-text">This is information about person 2.</p>
+                </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+                <div class="card-header">
+                    <p class="card-text">Person 3.</p>
+                </div>
+
+                <div class="card-body">
+                    <p class="card-text">This is information about person 3.</p>
+                </div>
+          </div>
+        </div>
+    </div>
+
+  </main>
+
+{%endblock body%}

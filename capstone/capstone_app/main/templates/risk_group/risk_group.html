@@ -1,0 +1,78 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{%block js%}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+<script type="text/javascript" language="JavaScript" src="{% static 'risk_group/js_chart_builder.js' %}"></script>
+<script type="text/javascript" language="JavaScript" src="{% static 'risk_group/js_selections_switch.js' %}"></script>
+
+{%endblock js%}
+
+
+
+{%block body%}
+
+<div style='padding:2%; text-align:center;'>
+    <H2>Learn more about your individual risk for developing skin cancer</H2>
+    <H4>Select from one diagrams below to view your associated risk</H4>
+</div>
+
+
+
+<div id='user_selections' style='width:25%; margin:0 auto;'>
+
+    <select id='diagram_selection' class="custom-select custom-select-lg mb-3" onchange="test_selections(this);">
+        <option selected>Select diagram type</option>
+        <option value="age">Age specific risk</option>
+        <option value="gender">Gender specific risk</option>
+        <option value="location">Location specific risk</option>
+    </select>
+
+    <select id='gender_selection' class="custom-select custom-select-lg mb-3" style='display: none;'>
+        <option selected>Select identified gender</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="unknown">Unknown</option>
+    </select>
+
+    
+    <select id='location_selection' class="custom-select custom-select-lg mb-3" style='display: none;'>
+        <option selected>Select location of mole</option>
+        <option value="scalp">scalp</option>
+        <option value="ear">ear</option>
+        <option value="face">face</option>
+        <option value="back">back</option>
+        <option value="trunk">trunk</option>
+        <option value="chest">chest</option>
+        <option value="upper_extremity">upper extremity</option>
+        <option value="abdomen">abdomen</option>
+        <option value="lower_extremity">lower extremity</option>
+        <option value="genital">genital</option>
+        <option value="neck">neck</option>
+        <option value="hand">hand</option>
+        <option value="foot">foot</option>
+        <option value="acral">acral</option>
+        <option value="unknown">unknown</option>
+    </select>
+
+    <label for="age_input" id='age_input_label' style='display: none;'>Input your age:</label>
+    <input type="text" class="form-control" id="age_input" style='display: none; margin-bottom: 2%;'>
+
+    <button id='submit_button' class='btn btn-primary' style='margin:0 auto;' onclick='chart_controller()'> Submit </button>
+    
+
+</div>
+
+
+<div id='histogram_chart' style='margin: 0 auto; width: 75%; height: 50%;'>
+
+    <canvas id="myChart" ></canvas>
+
+</div>
+
+
+{%endblock body%}
+
+
+

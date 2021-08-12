@@ -1,0 +1,47 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+
+
+{%block body%}
+
+<div style='padding:2%; text-align:center;'>
+    <H2>Home skin cancer analysis</H2>
+    <H4>Please upload a picture of your mole for analysis</H4>
+</div>
+
+<form method="post" enctype="multipart/form-data" style='text-align:center;'>
+    {% csrf_token %}
+     {{ form.as_p }}
+    <button type="submit" style="text-align:center;">Upload</button>
+  </form>
+  
+  {% if img_obj %}
+  <div style='text-align:center;'>
+    <h3>Succesfully analzed the below photo:</h3>
+    <img src="{{ img_obj.image.url}}" alt="connect" style="max-height:150px">
+</div>
+
+<br>
+  {% endif %}
+
+
+
+  {% if result == True %}
+    <div style='text-align:center;color:red;'>
+        <h3>Please contact us and inform our staff you require an immedate appointment</h3>
+    </div>
+
+    {% endif %}
+
+    {% if result == False %}
+
+    <div style='text-align:center;color:green'>
+        <h3>There appears to be no immedate threat.<br>Please schedule a regular appointment for an in-person exam</h3>
+    </div>
+    {% endif %}
+
+
+    <br>
+
+{%endblock body%}

@@ -1,0 +1,57 @@
+
+{% extends "base/base.html" %}
+
+{% load static %}
+
+{%block css%}
+<link rel="stylesheet" href="{% static 'login/login_css.css' %}">
+{%endblock css%}
+
+
+
+
+
+
+{%block body%}
+
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    {%if "no_user" in message.tags %}
+        <p class="messages alert alert-success" style="text-align: center;">  {{message}} </p> 
+    {% endif %}
+  {% endfor %}
+</ul>
+{% endif %}
+
+
+
+
+
+
+<div class='body2'>
+ <form class="form-signin" style='padding:2%; text-align:center;' method='POST'>
+  {% csrf_token %}
+    <div class="text-center mb-4">
+      <H1 class="h1 mb-3 font-weight-normal">Please login</H1>
+     <b>
+      <H4>Username = test</H4>
+     <H4>password = test</H4>
+    </b>
+    </div>
+
+    <div class="form-label-group">
+      <input type="text" id="inputUserName" name="inputUserName" class="form-control" required autofocus>
+      <label for="inputUserName">User Name</label>
+    </div>
+
+    <div class="form-label-group">
+      <input type="password" id="inputPassword" name="inputPassword" class="form-control" placeholder="Password" required>
+      <label for="inputPassword">Password</label>
+    </div>
+
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+  </form>
+</div>
+  {%endblock body%}
