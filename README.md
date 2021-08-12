@@ -10,5 +10,9 @@ Successful deployment of the application depends on a configured .env file which
 ### Application dependencies
 View Dockerfiles and requirements files outlined in the docker-compose.yml
 
+### Dataset 
+The data used to train the SVC model can be found on Kaggle using the link below. 
+https://www.kaggle.com/kmader/skin-cancer-mnist-ham10000
+
 ### Author
 Kevin Hardaway
